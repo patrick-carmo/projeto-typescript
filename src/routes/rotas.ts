@@ -1,10 +1,18 @@
-import { Router } from "express"
+import { Router } from 'express'
 const rota = Router()
 
-//listagem de carros
-//detalhes de um carro
-//cadastro de carro
-//atualização de um carro
-//exclusão do carro
+import {
+  listarCarros,
+  detalharCarros,
+  cadastrarCarros,
+  atualizarCarros,
+  excluirCarros,
+} from '../controllers/carros'
+
+rota.get('/carros', listarCarros)
+rota.get('/carros/:id', detalharCarros)
+rota.post('/carros', cadastrarCarros)
+rota.put('/carros/:id', atualizarCarros)
+rota.delete('/carros/:id', excluirCarros)
 
 export default rota
